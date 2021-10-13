@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://voronoi_material.tres" type="Material" id=1]
+[ext_resource path="res://voronoi_driver.gd" type="Script" id=2]
+
+[sub_resource type="PlaneMesh" id=1]
+subdivide_width = 200
+subdivide_depth = 200
+
+[node name="main" type="Spatial"]
+
+[node name="voronoi_mesh" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 1.5312, 0 )
+
+[node name="DirectionalLight" type="OmniLight" parent="Camera"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.09597e-08, 0.435548 )
+light_indirect_energy = 0.0
+shadow_enabled = true
+shadow_contact = 10.0
+omni_range = 13.7855
